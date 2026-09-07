@@ -48,6 +48,12 @@ type AppliedWorkStatus struct {
 	AppliedResources []AppliedResourceMeta `json:"appliedResources,omitempty"`
 }
 
+// AppliedtWorkStatus is a deprecated alias for AppliedWorkStatus, kept for
+// existing code that referenced the misspelled name.
+//
+// Deprecated: use AppliedWorkStatus instead.
+type AppliedtWorkStatus = AppliedWorkStatus
+
 // AppliedResourceMeta represents the group, version, resource, name and namespace of a resource.
 // Since these resources have been created, they must have valid group, version, resource, namespace, and name.
 type AppliedResourceMeta struct {
