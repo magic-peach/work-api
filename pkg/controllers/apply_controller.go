@@ -205,7 +205,7 @@ func isManifestModified(observedGeneration int64, gvr schema.GroupVersionResourc
 
 // isSameUnstructuredMeta compares the metadata of two unstructured object.
 func isSameUnstructuredMeta(obj1, obj2 *unstructured.Unstructured) bool {
-	// Comapre gvk, name, namespace at first
+	// Compare gvk, name, namespace at first
 	if obj1.GroupVersionKind() != obj2.GroupVersionKind() {
 		return false
 	}
@@ -270,7 +270,7 @@ func findObservedGenerationOfManifest(
 }
 
 // setSpecHashAnnotation computes the hash of the provided spec and sets an annotation of the
-// hash on the provided unstructured objectt. This method is used internally by Apply<type> methods.
+// hash on the provided unstructured object. This method is used internally by Apply<type> methods.
 func setSpecHashAnnotation(obj *unstructured.Unstructured) error {
 	data := obj.DeepCopy().Object
 	// do not hash metadata and status section
