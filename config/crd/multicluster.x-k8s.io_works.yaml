@@ -59,7 +59,7 @@ spec:
                   type: object
                   properties:
                     manifests:
-                      description: Manifests represents a list of kubernetes resources to be deployed on the spoke cluster.
+                      description: Manifests represents a list of Kubernetes resources to be deployed on the spoke cluster.
                       type: array
                       items:
                         description: Manifest represents a resource to be deployed on spoke cluster
