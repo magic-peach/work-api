@@ -65,6 +65,14 @@ On the `Hub` cluster terminal, run the following command:
 kubectl apply -f examples/example-work.yaml
 ```
 
+### Verify delivery from the Hub cluster
+The Work object itself reports whether it was applied, so you do not need access to the
+Spoke cluster to check delivery. On the `Hub` cluster terminal, run:
+```
+kubectl -n default describe work test-work
+```
+Look for a condition of type `Applied` with status `True` in the output.
+
 ### Verify delivery on the Spoke cluster
 On the `Spoke` cluster terminal, run the following commands:
 ```
