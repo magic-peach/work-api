@@ -36,8 +36,8 @@ type AppliedWorkSpec struct {
 	WorkNamespace string `json:"workNamespace"`
 }
 
-// AppliedtWorkStatus represents the current status of AppliedWork
-type AppliedtWorkStatus struct {
+// AppliedWorkStatus represents the current status of AppliedWork
+type AppliedWorkStatus struct {
 	// AppliedResources represents a list of resources defined within the Work that are applied.
 	// Only resources with valid GroupVersionResource, namespace, and name are suitable.
 	// An item in this slice is deleted when there is no mapped manifest in Work.Spec or by finalizer.
@@ -47,6 +47,12 @@ type AppliedtWorkStatus struct {
 	// +optional
 	AppliedResources []AppliedResourceMeta `json:"appliedResources,omitempty"`
 }
+
+// AppliedtWorkStatus is a deprecated alias for AppliedWorkStatus, kept for
+// existing code that referenced the misspelled name.
+//
+// Deprecated: use AppliedWorkStatus instead.
+type AppliedtWorkStatus = AppliedWorkStatus
 
 // AppliedResourceMeta represents the group, version, resource, name and namespace of a resource.
 // Since these resources have been created, they must have valid group, version, resource, namespace, and name.
@@ -86,7 +92,7 @@ type AppliedWork struct {
 
 	// Status represents the current status of AppliedWork.
 	// +optional
-	Status AppliedtWorkStatus `json:"status,omitempty"`
+	Status AppliedWorkStatus `json:"status,omitempty"`
 }
 
 // +kubebuilder:object:root=true
